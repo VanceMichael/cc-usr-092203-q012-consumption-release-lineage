@@ -1,0 +1,1725 @@
+{
+  "description": "云州市智能家电消费券成效归因样例（合成数据，不含真实个人信息）",
+  "story": [
+    "云州市 2026-02-23 启动智能家电消费券（camp-01），临江县作为对照地区",
+    "统计分类 2026-03-02 从 cat-v1 切换到 cat-v2，历史统计需重述后才可比",
+    "商户 m-01 于 2026-03-16 迁往临江县，迁址前后的核销应归属不同地区",
+    "p-007 在 camp-01 与 camp-02 重复领取，跨活动人数需要去重",
+    "p-013 于 2026-04-02 同日集中核销 3 笔，疑似刷单",
+    "red-05 的退款 2026-05-10 才记录，晚于报告 v1 截止，进入 v2"
+  ],
+  "events": [
+    {
+      "id": "r-yunzhou",
+      "kind": "region",
+      "valid_from": "2025-01-01",
+      "valid_to": null,
+      "recorded_at": "2025-01-01T08:00:00Z",
+      "payload": {
+        "name": "云州市",
+        "level": "prefecture"
+      }
+    },
+    {
+      "id": "r-linjiang",
+      "kind": "region",
+      "valid_from": "2025-01-01",
+      "valid_to": null,
+      "recorded_at": "2025-01-01T08:00:00Z",
+      "payload": {
+        "name": "临江县",
+        "level": "county"
+      }
+    },
+    {
+      "id": "cat-smart-device",
+      "kind": "category",
+      "valid_from": "2025-01-01",
+      "valid_to": null,
+      "recorded_at": "2025-01-01T08:00:00Z",
+      "payload": {
+        "name": "智能设备",
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cat-food-service",
+      "kind": "category",
+      "valid_from": "2025-01-01",
+      "valid_to": null,
+      "recorded_at": "2025-01-01T08:00:00Z",
+      "payload": {
+        "name": "餐饮服务",
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cat-smarthome",
+      "kind": "category",
+      "valid_from": "2026-03-02",
+      "valid_to": null,
+      "recorded_at": "2026-03-02T08:00:00Z",
+      "payload": {
+        "name": "智能家电",
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cat-dining",
+      "kind": "category",
+      "valid_from": "2026-03-02",
+      "valid_to": null,
+      "recorded_at": "2026-03-02T08:00:00Z",
+      "payload": {
+        "name": "餐饮服务",
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "m-01",
+      "kind": "merchant",
+      "valid_from": "2025-01-01",
+      "valid_to": null,
+      "recorded_at": "2025-12-01T08:00:00Z",
+      "payload": {
+        "name": "云州智能家电城",
+        "region_id": "r-yunzhou",
+        "category": "cat-smarthome"
+      }
+    },
+    {
+      "id": "m-02",
+      "kind": "merchant",
+      "valid_from": "2025-01-01",
+      "valid_to": null,
+      "recorded_at": "2025-12-01T08:00:00Z",
+      "payload": {
+        "name": "云州电器广场",
+        "region_id": "r-yunzhou",
+        "category": "cat-smarthome"
+      }
+    },
+    {
+      "id": "m-03",
+      "kind": "merchant",
+      "valid_from": "2025-01-01",
+      "valid_to": null,
+      "recorded_at": "2025-12-01T08:00:00Z",
+      "payload": {
+        "name": "临江家电行",
+        "region_id": "r-linjiang",
+        "category": "cat-smarthome"
+      }
+    },
+    {
+      "id": "camp-01",
+      "kind": "campaign",
+      "valid_from": "2026-02-23",
+      "valid_to": "2026-04-05",
+      "recorded_at": "2026-02-10T08:00:00Z",
+      "payload": {
+        "name": "智能家电消费券",
+        "region_id": "r-yunzhou",
+        "measure_type": "消费券",
+        "category_scope": [
+          "cat-smarthome"
+        ],
+        "budget_total": 5000000
+      }
+    },
+    {
+      "id": "camp-02",
+      "kind": "campaign",
+      "valid_from": "2026-03-01",
+      "valid_to": "2026-04-30",
+      "recorded_at": "2026-02-20T08:00:00Z",
+      "payload": {
+        "name": "餐饮惠民消费券",
+        "region_id": "r-yunzhou",
+        "measure_type": "消费券",
+        "category_scope": [
+          "cat-dining"
+        ],
+        "budget_total": 1000000
+      }
+    },
+    {
+      "id": "eli-01",
+      "kind": "eligibility",
+      "valid_from": "2026-02-23",
+      "valid_to": "2026-04-05",
+      "recorded_at": "2026-02-10T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "rule": "云州市常住人口，每人限领1张，补贴比例10%"
+      }
+    },
+    {
+      "id": "eli-02",
+      "kind": "eligibility",
+      "valid_from": "2026-03-01",
+      "valid_to": "2026-04-30",
+      "recorded_at": "2026-02-20T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-02",
+        "rule": "云州市常住人口，每人限领2张"
+      }
+    },
+    {
+      "id": "bud-01",
+      "kind": "budget",
+      "valid_from": "2026-02-23",
+      "valid_to": "2026-04-05",
+      "recorded_at": "2026-02-20T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "amount": 5000000
+      }
+    },
+    {
+      "id": "bud-02",
+      "kind": "budget",
+      "valid_from": "2026-03-01",
+      "valid_to": "2026-04-30",
+      "recorded_at": "2026-02-25T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-02",
+        "amount": 1000000
+      }
+    },
+    {
+      "id": "exp-01",
+      "kind": "exposure",
+      "valid_from": "2026-02-23",
+      "valid_to": null,
+      "recorded_at": "2026-02-23T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "channel": "app_push",
+        "count": 50000
+      }
+    },
+    {
+      "id": "exp-02",
+      "kind": "exposure",
+      "valid_from": "2026-03-02",
+      "valid_to": null,
+      "recorded_at": "2026-03-02T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "channel": "app_push",
+        "count": 30000
+      }
+    },
+    {
+      "id": "exp-03",
+      "kind": "exposure",
+      "valid_from": "2026-03-16",
+      "valid_to": null,
+      "recorded_at": "2026-03-16T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "channel": "offline",
+        "count": 20000
+      }
+    },
+    {
+      "id": "cs-001",
+      "kind": "consumption_stat",
+      "valid_from": "2025-12-29",
+      "valid_to": null,
+      "recorded_at": "2026-01-02T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smart-device",
+        "week_start": "2025-12-29",
+        "amount": 960000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-002",
+      "kind": "consumption_stat",
+      "valid_from": "2026-01-05",
+      "valid_to": null,
+      "recorded_at": "2026-01-09T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smart-device",
+        "week_start": "2026-01-05",
+        "amount": 980000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-003",
+      "kind": "consumption_stat",
+      "valid_from": "2026-01-12",
+      "valid_to": null,
+      "recorded_at": "2026-01-16T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smart-device",
+        "week_start": "2026-01-12",
+        "amount": 1000000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-004",
+      "kind": "consumption_stat",
+      "valid_from": "2026-01-19",
+      "valid_to": null,
+      "recorded_at": "2026-01-23T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smart-device",
+        "week_start": "2026-01-19",
+        "amount": 1020000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-005",
+      "kind": "consumption_stat",
+      "valid_from": "2026-01-26",
+      "valid_to": null,
+      "recorded_at": "2026-01-30T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smart-device",
+        "week_start": "2026-01-26",
+        "amount": 1000000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-006",
+      "kind": "consumption_stat",
+      "valid_from": "2026-02-02",
+      "valid_to": null,
+      "recorded_at": "2026-02-06T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smart-device",
+        "week_start": "2026-02-02",
+        "amount": 980000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-007",
+      "kind": "consumption_stat",
+      "valid_from": "2026-02-09",
+      "valid_to": null,
+      "recorded_at": "2026-02-13T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smart-device",
+        "week_start": "2026-02-09",
+        "amount": 1020000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-008",
+      "kind": "consumption_stat",
+      "valid_from": "2026-02-16",
+      "valid_to": null,
+      "recorded_at": "2026-02-20T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smart-device",
+        "week_start": "2026-02-16",
+        "amount": 1040000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-009",
+      "kind": "consumption_stat",
+      "valid_from": "2026-02-23",
+      "valid_to": null,
+      "recorded_at": "2026-02-27T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smart-device",
+        "week_start": "2026-02-23",
+        "amount": 1260000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-010",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-02",
+      "valid_to": null,
+      "recorded_at": "2026-03-06T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smarthome",
+        "week_start": "2026-03-02",
+        "amount": 1300000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-011",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-09",
+      "valid_to": null,
+      "recorded_at": "2026-03-13T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smarthome",
+        "week_start": "2026-03-09",
+        "amount": 1320000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-012",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-16",
+      "valid_to": null,
+      "recorded_at": "2026-03-20T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smarthome",
+        "week_start": "2026-03-16",
+        "amount": 1280000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-013",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-23",
+      "valid_to": null,
+      "recorded_at": "2026-03-27T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smarthome",
+        "week_start": "2026-03-23",
+        "amount": 1340000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-014",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-30",
+      "valid_to": null,
+      "recorded_at": "2026-04-03T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smarthome",
+        "week_start": "2026-03-30",
+        "amount": 1300000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-015",
+      "kind": "consumption_stat",
+      "valid_from": "2026-04-06",
+      "valid_to": null,
+      "recorded_at": "2026-04-10T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smarthome",
+        "week_start": "2026-04-06",
+        "amount": 1060000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-016",
+      "kind": "consumption_stat",
+      "valid_from": "2026-04-13",
+      "valid_to": null,
+      "recorded_at": "2026-04-17T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smarthome",
+        "week_start": "2026-04-13",
+        "amount": 1080000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-017",
+      "kind": "consumption_stat",
+      "valid_from": "2026-04-20",
+      "valid_to": null,
+      "recorded_at": "2026-04-24T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smarthome",
+        "week_start": "2026-04-20",
+        "amount": 1100000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-018",
+      "kind": "consumption_stat",
+      "valid_from": "2026-04-27",
+      "valid_to": null,
+      "recorded_at": "2026-05-01T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-smarthome",
+        "week_start": "2026-04-27",
+        "amount": 1080000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-019",
+      "kind": "consumption_stat",
+      "valid_from": "2025-12-29",
+      "valid_to": null,
+      "recorded_at": "2026-01-02T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smart-device",
+        "week_start": "2025-12-29",
+        "amount": 760000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-020",
+      "kind": "consumption_stat",
+      "valid_from": "2026-01-05",
+      "valid_to": null,
+      "recorded_at": "2026-01-09T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smart-device",
+        "week_start": "2026-01-05",
+        "amount": 780000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-021",
+      "kind": "consumption_stat",
+      "valid_from": "2026-01-12",
+      "valid_to": null,
+      "recorded_at": "2026-01-16T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smart-device",
+        "week_start": "2026-01-12",
+        "amount": 800000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-022",
+      "kind": "consumption_stat",
+      "valid_from": "2026-01-19",
+      "valid_to": null,
+      "recorded_at": "2026-01-23T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smart-device",
+        "week_start": "2026-01-19",
+        "amount": 820000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-023",
+      "kind": "consumption_stat",
+      "valid_from": "2026-01-26",
+      "valid_to": null,
+      "recorded_at": "2026-01-30T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smart-device",
+        "week_start": "2026-01-26",
+        "amount": 800000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-024",
+      "kind": "consumption_stat",
+      "valid_from": "2026-02-02",
+      "valid_to": null,
+      "recorded_at": "2026-02-06T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smart-device",
+        "week_start": "2026-02-02",
+        "amount": 780000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-025",
+      "kind": "consumption_stat",
+      "valid_from": "2026-02-09",
+      "valid_to": null,
+      "recorded_at": "2026-02-13T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smart-device",
+        "week_start": "2026-02-09",
+        "amount": 820000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-026",
+      "kind": "consumption_stat",
+      "valid_from": "2026-02-16",
+      "valid_to": null,
+      "recorded_at": "2026-02-20T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smart-device",
+        "week_start": "2026-02-16",
+        "amount": 840000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-027",
+      "kind": "consumption_stat",
+      "valid_from": "2026-02-23",
+      "valid_to": null,
+      "recorded_at": "2026-02-27T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smart-device",
+        "week_start": "2026-02-23",
+        "amount": 800000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-028",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-02",
+      "valid_to": null,
+      "recorded_at": "2026-03-06T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smarthome",
+        "week_start": "2026-03-02",
+        "amount": 840000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-029",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-09",
+      "valid_to": null,
+      "recorded_at": "2026-03-13T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smarthome",
+        "week_start": "2026-03-09",
+        "amount": 860000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-030",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-16",
+      "valid_to": null,
+      "recorded_at": "2026-03-20T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smarthome",
+        "week_start": "2026-03-16",
+        "amount": 820000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-031",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-23",
+      "valid_to": null,
+      "recorded_at": "2026-03-27T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smarthome",
+        "week_start": "2026-03-23",
+        "amount": 880000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-032",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-30",
+      "valid_to": null,
+      "recorded_at": "2026-04-03T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smarthome",
+        "week_start": "2026-03-30",
+        "amount": 840000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-033",
+      "kind": "consumption_stat",
+      "valid_from": "2026-04-06",
+      "valid_to": null,
+      "recorded_at": "2026-04-10T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smarthome",
+        "week_start": "2026-04-06",
+        "amount": 790000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-034",
+      "kind": "consumption_stat",
+      "valid_from": "2026-04-13",
+      "valid_to": null,
+      "recorded_at": "2026-04-17T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smarthome",
+        "week_start": "2026-04-13",
+        "amount": 810000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-035",
+      "kind": "consumption_stat",
+      "valid_from": "2026-04-20",
+      "valid_to": null,
+      "recorded_at": "2026-04-24T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smarthome",
+        "week_start": "2026-04-20",
+        "amount": 830000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-036",
+      "kind": "consumption_stat",
+      "valid_from": "2026-04-27",
+      "valid_to": null,
+      "recorded_at": "2026-05-01T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-smarthome",
+        "week_start": "2026-04-27",
+        "amount": 810000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-037",
+      "kind": "consumption_stat",
+      "valid_from": "2025-12-29",
+      "valid_to": null,
+      "recorded_at": "2026-01-02T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-food-service",
+        "week_start": "2025-12-29",
+        "amount": 580000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-038",
+      "kind": "consumption_stat",
+      "valid_from": "2026-01-05",
+      "valid_to": null,
+      "recorded_at": "2026-01-09T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-food-service",
+        "week_start": "2026-01-05",
+        "amount": 590000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-039",
+      "kind": "consumption_stat",
+      "valid_from": "2026-01-12",
+      "valid_to": null,
+      "recorded_at": "2026-01-16T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-food-service",
+        "week_start": "2026-01-12",
+        "amount": 600000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-040",
+      "kind": "consumption_stat",
+      "valid_from": "2026-01-19",
+      "valid_to": null,
+      "recorded_at": "2026-01-23T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-food-service",
+        "week_start": "2026-01-19",
+        "amount": 610000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-041",
+      "kind": "consumption_stat",
+      "valid_from": "2026-01-26",
+      "valid_to": null,
+      "recorded_at": "2026-01-30T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-food-service",
+        "week_start": "2026-01-26",
+        "amount": 600000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-042",
+      "kind": "consumption_stat",
+      "valid_from": "2026-02-02",
+      "valid_to": null,
+      "recorded_at": "2026-02-06T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-food-service",
+        "week_start": "2026-02-02",
+        "amount": 590000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-043",
+      "kind": "consumption_stat",
+      "valid_from": "2026-02-09",
+      "valid_to": null,
+      "recorded_at": "2026-02-13T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-food-service",
+        "week_start": "2026-02-09",
+        "amount": 610000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-044",
+      "kind": "consumption_stat",
+      "valid_from": "2026-02-16",
+      "valid_to": null,
+      "recorded_at": "2026-02-20T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-food-service",
+        "week_start": "2026-02-16",
+        "amount": 620000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-045",
+      "kind": "consumption_stat",
+      "valid_from": "2026-02-23",
+      "valid_to": null,
+      "recorded_at": "2026-02-27T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-food-service",
+        "week_start": "2026-02-23",
+        "amount": 550000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-046",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-02",
+      "valid_to": null,
+      "recorded_at": "2026-03-06T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-dining",
+        "week_start": "2026-03-02",
+        "amount": 570000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-047",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-09",
+      "valid_to": null,
+      "recorded_at": "2026-03-13T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-dining",
+        "week_start": "2026-03-09",
+        "amount": 580000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-048",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-16",
+      "valid_to": null,
+      "recorded_at": "2026-03-20T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-dining",
+        "week_start": "2026-03-16",
+        "amount": 560000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-049",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-23",
+      "valid_to": null,
+      "recorded_at": "2026-03-27T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-dining",
+        "week_start": "2026-03-23",
+        "amount": 590000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-050",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-30",
+      "valid_to": null,
+      "recorded_at": "2026-04-03T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-dining",
+        "week_start": "2026-03-30",
+        "amount": 570000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-051",
+      "kind": "consumption_stat",
+      "valid_from": "2026-04-06",
+      "valid_to": null,
+      "recorded_at": "2026-04-10T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-dining",
+        "week_start": "2026-04-06",
+        "amount": 580000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-052",
+      "kind": "consumption_stat",
+      "valid_from": "2026-04-13",
+      "valid_to": null,
+      "recorded_at": "2026-04-17T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-dining",
+        "week_start": "2026-04-13",
+        "amount": 590000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-053",
+      "kind": "consumption_stat",
+      "valid_from": "2026-04-20",
+      "valid_to": null,
+      "recorded_at": "2026-04-24T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-dining",
+        "week_start": "2026-04-20",
+        "amount": 600000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-054",
+      "kind": "consumption_stat",
+      "valid_from": "2026-04-27",
+      "valid_to": null,
+      "recorded_at": "2026-05-01T08:00:00Z",
+      "payload": {
+        "region_id": "r-yunzhou",
+        "category": "cat-dining",
+        "week_start": "2026-04-27",
+        "amount": 590000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-055",
+      "kind": "consumption_stat",
+      "valid_from": "2025-12-29",
+      "valid_to": null,
+      "recorded_at": "2026-01-02T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-food-service",
+        "week_start": "2025-12-29",
+        "amount": 480000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-056",
+      "kind": "consumption_stat",
+      "valid_from": "2026-01-05",
+      "valid_to": null,
+      "recorded_at": "2026-01-09T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-food-service",
+        "week_start": "2026-01-05",
+        "amount": 490000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-057",
+      "kind": "consumption_stat",
+      "valid_from": "2026-01-12",
+      "valid_to": null,
+      "recorded_at": "2026-01-16T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-food-service",
+        "week_start": "2026-01-12",
+        "amount": 500000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-058",
+      "kind": "consumption_stat",
+      "valid_from": "2026-01-19",
+      "valid_to": null,
+      "recorded_at": "2026-01-23T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-food-service",
+        "week_start": "2026-01-19",
+        "amount": 510000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-059",
+      "kind": "consumption_stat",
+      "valid_from": "2026-01-26",
+      "valid_to": null,
+      "recorded_at": "2026-01-30T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-food-service",
+        "week_start": "2026-01-26",
+        "amount": 500000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-060",
+      "kind": "consumption_stat",
+      "valid_from": "2026-02-02",
+      "valid_to": null,
+      "recorded_at": "2026-02-06T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-food-service",
+        "week_start": "2026-02-02",
+        "amount": 490000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-061",
+      "kind": "consumption_stat",
+      "valid_from": "2026-02-09",
+      "valid_to": null,
+      "recorded_at": "2026-02-13T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-food-service",
+        "week_start": "2026-02-09",
+        "amount": 510000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-062",
+      "kind": "consumption_stat",
+      "valid_from": "2026-02-16",
+      "valid_to": null,
+      "recorded_at": "2026-02-20T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-food-service",
+        "week_start": "2026-02-16",
+        "amount": 520000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-063",
+      "kind": "consumption_stat",
+      "valid_from": "2026-02-23",
+      "valid_to": null,
+      "recorded_at": "2026-02-27T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-food-service",
+        "week_start": "2026-02-23",
+        "amount": 480000,
+        "classification_version": "cat-v1"
+      }
+    },
+    {
+      "id": "cs-064",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-02",
+      "valid_to": null,
+      "recorded_at": "2026-03-06T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-dining",
+        "week_start": "2026-03-02",
+        "amount": 500000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-065",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-09",
+      "valid_to": null,
+      "recorded_at": "2026-03-13T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-dining",
+        "week_start": "2026-03-09",
+        "amount": 510000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-066",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-16",
+      "valid_to": null,
+      "recorded_at": "2026-03-20T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-dining",
+        "week_start": "2026-03-16",
+        "amount": 490000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-067",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-23",
+      "valid_to": null,
+      "recorded_at": "2026-03-27T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-dining",
+        "week_start": "2026-03-23",
+        "amount": 520000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-068",
+      "kind": "consumption_stat",
+      "valid_from": "2026-03-30",
+      "valid_to": null,
+      "recorded_at": "2026-04-03T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-dining",
+        "week_start": "2026-03-30",
+        "amount": 500000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-069",
+      "kind": "consumption_stat",
+      "valid_from": "2026-04-06",
+      "valid_to": null,
+      "recorded_at": "2026-04-10T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-dining",
+        "week_start": "2026-04-06",
+        "amount": 490000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-070",
+      "kind": "consumption_stat",
+      "valid_from": "2026-04-13",
+      "valid_to": null,
+      "recorded_at": "2026-04-17T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-dining",
+        "week_start": "2026-04-13",
+        "amount": 500000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-071",
+      "kind": "consumption_stat",
+      "valid_from": "2026-04-20",
+      "valid_to": null,
+      "recorded_at": "2026-04-24T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-dining",
+        "week_start": "2026-04-20",
+        "amount": 510000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cs-072",
+      "kind": "consumption_stat",
+      "valid_from": "2026-04-27",
+      "valid_to": null,
+      "recorded_at": "2026-05-01T08:00:00Z",
+      "payload": {
+        "region_id": "r-linjiang",
+        "category": "cat-dining",
+        "week_start": "2026-04-27",
+        "amount": 500000,
+        "classification_version": "cat-v2"
+      }
+    },
+    {
+      "id": "cl-01",
+      "kind": "claim",
+      "valid_from": "2026-02-24",
+      "valid_to": null,
+      "recorded_at": "2026-02-24T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "person_ref": "p-001"
+      }
+    },
+    {
+      "id": "cl-02",
+      "kind": "claim",
+      "valid_from": "2026-02-26",
+      "valid_to": null,
+      "recorded_at": "2026-02-26T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "person_ref": "p-002"
+      }
+    },
+    {
+      "id": "cl-03",
+      "kind": "claim",
+      "valid_from": "2026-02-28",
+      "valid_to": null,
+      "recorded_at": "2026-02-28T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "person_ref": "p-007"
+      }
+    },
+    {
+      "id": "cl-04",
+      "kind": "claim",
+      "valid_from": "2026-03-03",
+      "valid_to": null,
+      "recorded_at": "2026-03-03T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "person_ref": "p-003"
+      }
+    },
+    {
+      "id": "cl-05",
+      "kind": "claim",
+      "valid_from": "2026-03-08",
+      "valid_to": null,
+      "recorded_at": "2026-03-08T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "person_ref": "p-004"
+      }
+    },
+    {
+      "id": "cl-06",
+      "kind": "claim",
+      "valid_from": "2026-03-12",
+      "valid_to": null,
+      "recorded_at": "2026-03-12T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "person_ref": "p-005"
+      }
+    },
+    {
+      "id": "cl-07",
+      "kind": "claim",
+      "valid_from": "2026-03-15",
+      "valid_to": null,
+      "recorded_at": "2026-03-15T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "person_ref": "p-006"
+      }
+    },
+    {
+      "id": "cl-08",
+      "kind": "claim",
+      "valid_from": "2026-03-18",
+      "valid_to": null,
+      "recorded_at": "2026-03-18T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "person_ref": "p-008"
+      }
+    },
+    {
+      "id": "cl-09",
+      "kind": "claim",
+      "valid_from": "2026-03-22",
+      "valid_to": null,
+      "recorded_at": "2026-03-22T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "person_ref": "p-009"
+      }
+    },
+    {
+      "id": "cl-10",
+      "kind": "claim",
+      "valid_from": "2026-03-26",
+      "valid_to": null,
+      "recorded_at": "2026-03-26T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "person_ref": "p-010"
+      }
+    },
+    {
+      "id": "cl-11",
+      "kind": "claim",
+      "valid_from": "2026-03-30",
+      "valid_to": null,
+      "recorded_at": "2026-03-30T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "person_ref": "p-011"
+      }
+    },
+    {
+      "id": "cl-12",
+      "kind": "claim",
+      "valid_from": "2026-04-01",
+      "valid_to": null,
+      "recorded_at": "2026-04-01T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "person_ref": "p-013"
+      }
+    },
+    {
+      "id": "cl-13",
+      "kind": "claim",
+      "valid_from": "2026-04-01",
+      "valid_to": null,
+      "recorded_at": "2026-04-01T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "person_ref": "p-013"
+      }
+    },
+    {
+      "id": "cl-14",
+      "kind": "claim",
+      "valid_from": "2026-04-01",
+      "valid_to": null,
+      "recorded_at": "2026-04-01T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-01",
+        "person_ref": "p-013"
+      }
+    },
+    {
+      "id": "cl-15",
+      "kind": "claim",
+      "valid_from": "2026-03-05",
+      "valid_to": null,
+      "recorded_at": "2026-03-05T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-02",
+        "person_ref": "p-007"
+      }
+    },
+    {
+      "id": "cl-16",
+      "kind": "claim",
+      "valid_from": "2026-03-06",
+      "valid_to": null,
+      "recorded_at": "2026-03-06T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-02",
+        "person_ref": "p-020"
+      }
+    },
+    {
+      "id": "cl-17",
+      "kind": "claim",
+      "valid_from": "2026-03-08",
+      "valid_to": null,
+      "recorded_at": "2026-03-08T08:00:00Z",
+      "payload": {
+        "campaign_id": "camp-02",
+        "person_ref": "p-021"
+      }
+    },
+    {
+      "id": "red-01",
+      "kind": "redemption",
+      "valid_from": "2026-02-25",
+      "valid_to": null,
+      "recorded_at": "2026-02-26T08:00:00Z",
+      "payload": {
+        "claim_id": "cl-01",
+        "merchant_id": "m-02",
+        "amount": 260000,
+        "subsidy_amount": 26000
+      }
+    },
+    {
+      "id": "red-02",
+      "kind": "redemption",
+      "valid_from": "2026-02-27",
+      "valid_to": null,
+      "recorded_at": "2026-02-28T08:00:00Z",
+      "payload": {
+        "claim_id": "cl-02",
+        "merchant_id": "m-01",
+        "amount": 260000,
+        "subsidy_amount": 26000
+      }
+    },
+    {
+      "id": "red-03",
+      "kind": "redemption",
+      "valid_from": "2026-03-10",
+      "valid_to": null,
+      "recorded_at": "2026-03-11T08:00:00Z",
+      "payload": {
+        "claim_id": "cl-03",
+        "merchant_id": "m-01",
+        "amount": 260000,
+        "subsidy_amount": 26000
+      }
+    },
+    {
+      "id": "red-04",
+      "kind": "redemption",
+      "valid_from": "2026-03-05",
+      "valid_to": null,
+      "recorded_at": "2026-03-06T08:00:00Z",
+      "payload": {
+        "claim_id": "cl-04",
+        "merchant_id": "m-02",
+        "amount": 260000,
+        "subsidy_amount": 26000
+      }
+    },
+    {
+      "id": "red-05",
+      "kind": "redemption",
+      "valid_from": "2026-03-20",
+      "valid_to": null,
+      "recorded_at": "2026-03-21T08:00:00Z",
+      "payload": {
+        "claim_id": "cl-05",
+        "merchant_id": "m-01",
+        "amount": 260000,
+        "subsidy_amount": 26000
+      }
+    },
+    {
+      "id": "red-06",
+      "kind": "redemption",
+      "valid_from": "2026-03-14",
+      "valid_to": null,
+      "recorded_at": "2026-03-15T08:00:00Z",
+      "payload": {
+        "claim_id": "cl-06",
+        "merchant_id": "m-02",
+        "amount": 260000,
+        "subsidy_amount": 26000
+      }
+    },
+    {
+      "id": "red-07",
+      "kind": "redemption",
+      "valid_from": "2026-03-25",
+      "valid_to": null,
+      "recorded_at": "2026-03-26T08:00:00Z",
+      "payload": {
+        "claim_id": "cl-07",
+        "merchant_id": "m-01",
+        "amount": 260000,
+        "subsidy_amount": 26000
+      }
+    },
+    {
+      "id": "red-08",
+      "kind": "redemption",
+      "valid_from": "2026-03-19",
+      "valid_to": null,
+      "recorded_at": "2026-03-20T08:00:00Z",
+      "payload": {
+        "claim_id": "cl-08",
+        "merchant_id": "m-02",
+        "amount": 260000,
+        "subsidy_amount": 26000
+      }
+    },
+    {
+      "id": "red-09",
+      "kind": "redemption",
+      "valid_from": "2026-03-23",
+      "valid_to": null,
+      "recorded_at": "2026-03-24T08:00:00Z",
+      "payload": {
+        "claim_id": "cl-09",
+        "merchant_id": "m-02",
+        "amount": 260000,
+        "subsidy_amount": 26000
+      }
+    },
+    {
+      "id": "red-10",
+      "kind": "redemption",
+      "valid_from": "2026-03-27",
+      "valid_to": null,
+      "recorded_at": "2026-03-28T08:00:00Z",
+      "payload": {
+        "claim_id": "cl-10",
+        "merchant_id": "m-02",
+        "amount": 260000,
+        "subsidy_amount": 26000
+      }
+    },
+    {
+      "id": "red-11",
+      "kind": "redemption",
+      "valid_from": "2026-03-31",
+      "valid_to": null,
+      "recorded_at": "2026-04-01T08:00:00Z",
+      "payload": {
+        "claim_id": "cl-11",
+        "merchant_id": "m-02",
+        "amount": 260000,
+        "subsidy_amount": 26000
+      }
+    },
+    {
+      "id": "red-12",
+      "kind": "redemption",
+      "valid_from": "2026-04-02",
+      "valid_to": null,
+      "recorded_at": "2026-04-03T08:00:00Z",
+      "payload": {
+        "claim_id": "cl-12",
+        "merchant_id": "m-02",
+        "amount": 130000,
+        "subsidy_amount": 13000
+      }
+    },
+    {
+      "id": "red-13",
+      "kind": "redemption",
+      "valid_from": "2026-04-02",
+      "valid_to": null,
+      "recorded_at": "2026-04-03T08:00:00Z",
+      "payload": {
+        "claim_id": "cl-13",
+        "merchant_id": "m-02",
+        "amount": 130000,
+        "subsidy_amount": 13000
+      }
+    },
+    {
+      "id": "red-14",
+      "kind": "redemption",
+      "valid_from": "2026-04-02",
+      "valid_to": null,
+      "recorded_at": "2026-04-03T08:00:00Z",
+      "payload": {
+        "claim_id": "cl-14",
+        "merchant_id": "m-02",
+        "amount": 130000,
+        "subsidy_amount": 13000
+      }
+    },
+    {
+      "id": "ref-01",
+      "kind": "refund",
+      "valid_from": "2026-04-28",
+      "valid_to": null,
+      "recorded_at": "2026-05-10T08:00:00Z",
+      "payload": {
+        "redemption_id": "red-05",
+        "amount": 260000,
+        "subsidy_amount": 26000
+      }
+    }
+  ],
+  "corrections": [
+    {
+      "id": "cor-class",
+      "kind": "classification_change",
+      "recorded_at": "2026-03-05T08:00:00Z",
+      "reason": "统计局分类调整，旧口径历史数据按映射重述",
+      "payload": {
+        "from_version": "cat-v1",
+        "to_version": "cat-v2",
+        "mapping": {
+          "cat-smart-device": "cat-smarthome",
+          "cat-food-service": "cat-dining"
+        }
+      }
+    },
+    {
+      "id": "cor-dup",
+      "kind": "duplicate_claim",
+      "recorded_at": "2026-05-06T08:00:00Z",
+      "reason": "同一人员跨活动重复领取，按先领先得归属",
+      "payload": {
+        "person_ref": "p-007",
+        "campaign_ids": [
+          "camp-01",
+          "camp-02"
+        ],
+        "rule": "first_claim"
+      }
+    },
+    {
+      "id": "cor-reloc",
+      "kind": "merchant_relocation",
+      "recorded_at": "2026-05-06T08:00:00Z",
+      "reason": "商户迁址，核销按核销发生时的所在地区重新归属",
+      "payload": {
+        "merchant_id": "m-01",
+        "from_region": "r-yunzhou",
+        "to_region": "r-linjiang",
+        "effective_from": "2026-03-16"
+      }
+    },
+    {
+      "id": "cor-fraud",
+      "kind": "fraud_flag",
+      "recorded_at": "2026-05-06T08:00:00Z",
+      "reason": "同一人员同日集中核销，疑似刷单，核销不计入归因",
+      "payload": {
+        "claim_ids": [
+          "cl-12",
+          "cl-13",
+          "cl-14"
+        ]
+      }
+    },
+    {
+      "id": "cor-refund",
+      "kind": "late_refund",
+      "recorded_at": "2026-05-11T08:00:00Z",
+      "reason": "平台迟报退款，冲减对应核销并产生新报告版本",
+      "payload": {
+        "refund_id": "ref-01"
+      }
+    }
+  ],
+  "config": {
+    "campaign_id": "camp-01",
+    "control": {
+      "type": "matched_region",
+      "region_id": "r-linjiang"
+    },
+    "windows": {
+      "pre": [
+        "2025-12-29",
+        "2026-02-22"
+      ],
+      "post": [
+        "2026-02-23",
+        "2026-04-05"
+      ],
+      "after": [
+        "2026-04-06",
+        "2026-05-03"
+      ]
+    },
+    "category_scope": [
+      "cat-smarthome"
+    ],
+    "comparison_categories": [
+      "cat-dining"
+    ],
+    "classification_version": "cat-v2"
+  },
+  "baseline_as_of": "2026-02-21T08:00:00Z",
+  "report_v1": {
+    "as_of": "2026-05-08T08:00:00Z",
+    "correction_ids": [
+      "cor-class"
+    ]
+  },
+  "report_v2": {
+    "as_of": "2026-05-12T08:00:00Z",
+    "correction_ids": [
+      "cor-class",
+      "cor-dup",
+      "cor-reloc",
+      "cor-fraud",
+      "cor-refund"
+    ]
+  }
+}

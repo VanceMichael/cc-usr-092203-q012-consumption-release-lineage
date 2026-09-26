@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "消费促进成效服务记录结构",
+  "description": "事件与修正记录的结构约定。代码侧由 src/events.js 与 src/corrections.js 执行校验，本文件用于跨团队对齐。所有记录都带业务时间边界（valid_from/valid_to）与系统记录时间（recorded_at）。",
+  "definitions": {
+    "event": {
+      "type": "object",
+      "required": ["id", "kind", "valid_from", "recorded_at", "payload"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "campaign",
+            "eligibility",
+            "merchant",
+            "region",
+            "category",
+            "budget",
+            "exposure",
+            "claim",
+            "redemption",
+            "refund",
+            "consumption_stat"
+          ]
+        },
+        "valid_from": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$", "description": "业务生效日期" },
+        "valid_to": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$", "description": "业务失效日期，null 表示开口" },
+        "recorded_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$", "description": "系统获知时间，迟到数据据此进入对应报告版本" },
+        "payload": { "type": "object" }
+      },
+      "additionalProperties": false
+    },
+    "correction": {
+      "type": "object",
+      "required": ["id", "kind", "recorded_at", "reason", "payload"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "duplicate_claim",
+            "merchant_relocation",
+            "classification_change",
+            "late_refund",
+            "fraud_flag"
+          ]
+        },
+        "recorded_at": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$" },
+        "reason": { "type": "string", "minLength": 1, "description": "修正理由，审计叙述的组成部分" },
+        "payload": { "type": "object" }
+      },
+      "additionalProperties": false
+    },
+    "reportConfig": {
+      "type": "object",
+      "required": ["campaign_id", "control", "windows", "category_scope", "comparison_categories", "classification_version"],
+      "properties": {
+        "campaign_id": { "type": "string" },
+        "control": {
+          "type": "object",
+          "description": "matched_region 指定对照地区；not_yet_treated 以分阶段实施中尚未覆盖的地区为对照",
+          "properties": {
+            "type": { "type": "string", "enum": ["matched_region", "not_yet_treated"] },
+            "region_id": { "type": "string" }
+          }
+        },
+        "windows": {
+          "type": "object",
+          "required": ["pre", "post", "after"],
+          "properties": {
+            "pre": { "type": "array", "items": { "type": "string" }, "minItems": 2, "maxItems": 2 },
+            "post": { "type": "array", "items": { "type": "string" }, "minItems": 2, "maxItems": 2 },
+            "after": { "type": "array", "items": { "type": "string" }, "minItems": 2, "maxItems": 2 }
+          }
+        },
+        "category_scope": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "comparison_categories": { "type": "array", "items": { "type": "string" } },
+        "classification_version": { "type": "string" }
+      },
+      "additionalProperties": false
+    }
+  }
+}
