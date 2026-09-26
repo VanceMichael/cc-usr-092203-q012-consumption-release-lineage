@@ -1,0 +1,18 @@
+{
+  "campaign_id": "camp-2026-smart-goods",
+  "name": "智能商品和服务消费补贴",
+  "measure_type": "subsidy_voucher",
+  "budget_total": 5000000,
+  "population": {
+    "eligible": "本市常住居民",
+    "per_person_limit": 2
+  },
+  "merchant_ids": ["m-01", "m-02", "m-03"],
+  "region_codes": ["R1"],
+  "category_codes": ["SMART_GOODS", "SMART_SERVICE"],
+  "exposure_window": { "from": "2026-06-01T00:00:00Z", "to": "2026-07-01T00:00:00Z" },
+  "claim_window": { "from": "2026-06-01T00:00:00Z", "to": "2026-06-21T00:00:00Z" },
+  "redeem_window": { "from": "2026-06-01T00:00:00Z", "to": "2026-07-01T00:00:00Z" },
+  "refund_window_note": "退货窗口长于核销窗口，迟到退款会进入后续版本报告",
+  "refund_window": { "from": "2026-06-01T00:00:00Z", "to": "2026-07-16T00:00:00Z" }
+}
